@@ -41,7 +41,6 @@ def get_movie(movie_id: int, db: Session = Depends(get_db)):
     if not movie:
         raise HTTPException(status_code=404, detail="Movie not found")
     return movie
-=======
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
