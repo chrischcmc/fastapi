@@ -8,6 +8,8 @@ from typing import List
 # Initialize FastAPI app
 app = FastAPI()
 
+allow_origins=["https://chrischcmc.github.io"], # GitHub Pages domain allow_credentials=True, allow_methods=["*"], allow_headers=["*"], )
+
 # Ensure tables are created in the database at startup
 Base.metadata.create_all(bind=engine)
 
