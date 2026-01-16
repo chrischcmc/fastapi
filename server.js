@@ -30,6 +30,16 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/dbtest', async (req, res) => {
+  try {
+    await pool.query('SELECT 1');
+    res.send('DB connection OK');
+  } catch (err) {
+    console.error('DB connection failed:', err.message);
+    res.status(500).send('DB connection failed: ' + err.message);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
