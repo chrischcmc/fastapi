@@ -1,8 +1,26 @@
 const express = require('express');
 const path = require('path');
+const { Pool } = require('pg');  // PostgreSQL client
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Database connection
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }   // Required for Render PostgreSQL
+});
+
+// API endpoint to fetch movies
+app.get('/movies', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT id, title, director, year FROM movies');
+    res.json(result.rows);
+  } catch (err) {
+    console.error('Database error:', err);
+    res.status(500).json({ error: 'Database connection failed' });
+  }
+});
 
 // Serve static files (HTML, CSS, JS)
 app.use(express.static(path.join(__dirname)));
