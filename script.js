@@ -1,4 +1,4 @@
-const apiUrl = "https://fastapi-amdb.onrender.com/movies/";
+const apiUrl = "https://fastapi-nodejs.onrender.com/movies";
 let moviesData = [];
 let filteredData = [];
 let sortColumn = null;
