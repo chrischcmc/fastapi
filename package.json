@@ -1,0 +1,12 @@
+{
+  "name": "movies-app",
+  "version": "1.0.0",
+  "description": "Movies Database frontend served by Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
