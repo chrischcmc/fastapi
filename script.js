@@ -1,4 +1,13 @@
-const apiUrl = "https://fastapi-nodejs.onrender.com/movies";
+let apiUrl;
+
+if (window.location.hostname === "chrischcmc.github.io") {
+    // Running on GitHub Pages → must call external backend
+    apiUrl = "https://fastapi-amdb.onrender.com/movies"; 
+} else {
+    // Running directly on Render (Node.js or FastAPI) → same origin works
+    apiUrl = window.location.origin + "/movies";
+}
+
 let moviesData = [];
 let filteredData = [];
 let sortColumn = null;
