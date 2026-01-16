@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 // Database connection
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }   // Required for Render PostgreSQL
+  ssl: { rejectUnauthorized: true }   // Required for Render PostgreSQL
 });
 
 // API endpoint to fetch movies
