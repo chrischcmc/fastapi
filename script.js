@@ -78,4 +78,29 @@ document.querySelectorAll('th.sortable').forEach(header => {
             
             if (typeof aVal === 'string') {
                 aVal = aVal.toLowerCase();
-                bVal = b
+                bVal = bVal.toLowerCase();
+            }
+            
+            if (sortDirection === 'asc') {
+                return aVal > bVal ? 1 : aVal < bVal ? -1 : 0;
+            } else {
+                return aVal < bVal ? 1 : aVal > bVal ? -1 : 0;
+            }
+        });
+        
+        renderTable(filteredData);
+    });
+});
+
+// Update stats
+function updateStats() {
+    const stats = document.getElementById('stats');
+    const showing = filteredData.length;
+    const total = moviesData.length;
+    
+    if (showing === total) {
+        stats.textContent = `Showing all ${total} movies`;
+    } else {
+        stats.textContent = `Showing ${showing} of ${total} movies`;
+    }
+}
