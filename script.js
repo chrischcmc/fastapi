@@ -30,7 +30,6 @@ function renderTable(data) {
 
     tbody.innerHTML = data.map(movie => `
         <tr>
-            <td class="id-cell">${movie.id}</td>
             <td class="title-cell">${movie.title}</td>
             <td class="director-cell">${movie.director}</td>
             <td class="year-cell">${movie.year}</td>
