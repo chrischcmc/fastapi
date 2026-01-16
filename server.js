@@ -13,7 +13,7 @@ const pool = new Pool({
 // API endpoint to fetch movies
 app.get('/movies', async (req, res) => {
   try {
-    const result = await pool.query('SELECT id, title, director, year FROM movies');
+    const result = await pool.query('title, director, year FROM movies');
     res.json(result.rows);
   } catch (err) {
     console.error('Database error:', err);
